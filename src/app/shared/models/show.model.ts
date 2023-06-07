@@ -19,14 +19,19 @@ export interface Link {
   href: string;
 }
 
+export interface Image {
+  medium: string;
+  original: string;
+}
+
 export class ShowDTO {
   public averageRuntime: number;
-  public dvdCountry: null; // TODO
-  public ended: null; // TODO
+  public dvdCountry: unknown; // TODO
+  public ended: string; // '2023-06-07'
   public externals: {tvrage: number; thetvdb: number; imdb: string;};
   public genres: string[];
   public id: number;
-  public image: {medium: string; original: string;}
+  public image: Image;
   public language: string;
   public name: string;
   public network: Channel;

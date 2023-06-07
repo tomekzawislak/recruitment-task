@@ -1,11 +1,11 @@
-import {Link, Rating, ShowDTO} from './show.model';
+import {Image, Link, Rating, ShowDTO} from './show.model';
 
 export class ScheduleItemDTO {
   public airdate: string;
   public airstamp: string;
   public airtime: string;
   public id: number;
-  public image: unknown; // TODO: type
+  public image: Image;
   public name: string;
   public number: number;
   public rating: Rating;

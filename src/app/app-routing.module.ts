@@ -10,7 +10,12 @@ const routes: Routes = [
   },
   {
     path: 'schedule',
-    component: ScheduleComponent
+    pathMatch: 'full',
+    component: ScheduleComponent,
+    title: 'TV Shows',
+    data: {
+      title: 'TV Shows scheduled for'
+    }
   },
   {
     path: '**',

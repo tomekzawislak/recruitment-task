@@ -1,0 +1,9 @@
+@import "../assets/styles/variables";
+
+.app-header {
+  height: 60px;
+  width: 100%;
+  padding: 16px;
+  background: $color-air-background;
+  font-size: 2em;
+}

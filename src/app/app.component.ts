@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {filter, map, Subscription} from 'rxjs';
-import {ScheduleService} from './schedule/services/schedule.service';
+import {FormControl} from '@angular/forms';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {filter, map, Subscription, tap} from 'rxjs';
+import {ScheduleService} from './schedule/services/schedule.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 })
 export class AppComponent implements OnInit, OnDestroy {
   public title = '';
+  public selectedDate = new FormControl();
 
   private subscriptions = new Subscription();
   constructor(private readonly router: Router,
@@ -18,6 +20,19 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.initRouterEventsSubscription();
+    this.initSelectedDateSubscription();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  public changeSelectedDate(event: MatDatepickerInputEvent<any>): void {
+    this.scheduleService.emitSelectedDate$(event.value); // TODO: MatDatepickerInputEvent<Date> as type
+  }
+
+  private initRouterEventsSubscription(): void {
     this.subscriptions.add(
       this.router.events
         .pipe(
@@ -34,7 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
             return routeTitle;
           })
         )
-        .subscribe((title) => {
+        .subscribe((title: string) => {
           if (title) {
             this.title = title;
           }
@@ -42,12 +57,13 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
-  }
-
-  public changeSelectedDate(event: MatDatepickerInputEvent<any>): void {
-    console.log(event)
-    this.scheduleService.emitSelectedDate(event.value); // TODO: MatDatepickerInputEvent<Date> as type
+  private initSelectedDateSubscription(): void {
+    this.subscriptions.add(
+      this.scheduleService.selectedDate$
+        .pipe(
+          tap((date: Date) => this.selectedDate.patchValue(date)),
+        )
+        .subscribe()
+    );
   }
 }

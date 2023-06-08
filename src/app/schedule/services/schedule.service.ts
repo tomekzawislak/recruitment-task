@@ -1,6 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {DataService} from '../../shared/services/data.service';
-import {BehaviorSubject, map, Observable, of, ReplaySubject, Subscription, switchMap, tap} from 'rxjs';
+import {BehaviorSubject, map, Observable, ReplaySubject, Subscription, switchMap, tap} from 'rxjs';
 import {ScheduleItem, ScheduleItemDTO} from '../../shared/models/schedule-item.model';
 import {formatDate} from '../../shared/functions/date.function';
 
@@ -24,7 +24,7 @@ export class ScheduleService implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  public emitSelectedDate(value: Date): void {
+  public emitSelectedDate$(value: Date): void {
     this._selectedDate$.next(value);
   }
 

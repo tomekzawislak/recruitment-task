@@ -3,7 +3,10 @@
   <div class="app-header__datepicker">
     <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" (dateChange)="changeSelectedDate($event)">
+      <input matInput
+             [matDatepicker]="picker"
+             [formControl]="selectedDate"
+             (dateChange)="changeSelectedDate($event)">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>

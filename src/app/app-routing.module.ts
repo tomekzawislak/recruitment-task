@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ScheduleComponent,
     title: 'TV Shows',
     data: {
-      title: 'TV Shows scheduled for'
+      title: 'Scheduled TV Shows'
     }
   },
   {

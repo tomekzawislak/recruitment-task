@@ -12,3 +12,9 @@ export function formatDate(date: Date): string {
     ].join('-')
   );
 }
+
+export function formatTime(dateTimeString: string): string {
+  const timeElements = dateTimeString.split('T')[1].split(':');
+  console.log(timeElements)
+  return `${timeElements[0]}:${timeElements[1]}`;
+}

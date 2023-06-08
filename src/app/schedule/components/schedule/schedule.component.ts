@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ScheduleService} from '../../services/schedule.service';
 
 @Component({

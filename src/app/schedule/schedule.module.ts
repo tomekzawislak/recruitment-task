@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {SharedModule} from '../shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
-    ScheduleComponent
+    ScheduleComponent,
+    ScheduleItemComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    NgOptimizedImage,
+    SharedModule
   ],
   exports: [
-    ScheduleComponent
+    ScheduleComponent,
+    ScheduleItemComponent
   ]
 })
 export class ScheduleModule { }

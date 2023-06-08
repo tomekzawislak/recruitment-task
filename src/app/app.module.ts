@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {DataService} from './shared/services/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ScheduleModule} from './schedule/schedule.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {ScheduleModule} from './schedule/schedule.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ScheduleModule
+    ScheduleModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

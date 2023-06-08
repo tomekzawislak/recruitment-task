@@ -35,11 +35,23 @@ export class ScheduleItemDTO {
     this._links = scheduleItemDTO._links;
   }
 
+  public get embedded(): {show: ShowDTO} {
+    return this._embedded;
+  }
+
 }
 
 export class ScheduleItem extends ScheduleItemDTO {
   constructor(scheduleItemDTO: ScheduleItemDTO) {
     super(scheduleItemDTO);
+  }
+
+  public get cardCover(): string {
+    return this.embedded.show.image.medium;
+  }
+
+  public get showTitle(): string {
+    return this.embedded.show.name;
   }
 
   public get DTO(): ScheduleItemDTO {

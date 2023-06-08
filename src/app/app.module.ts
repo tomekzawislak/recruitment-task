@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {DataService} from './shared/services/data.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ScheduleModule} from './schedule/schedule.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ScheduleModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

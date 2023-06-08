@@ -1,0 +1,7 @@
+<p>schedule works!</p>
+
+<ng-container *ngIf="!!schedule$">
+  <div *ngFor="let schedule of (schedule$ | async)">
+    {{schedule.name}}
+  </div>
+</ng-container>

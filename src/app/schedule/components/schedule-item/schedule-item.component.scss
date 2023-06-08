@@ -1,9 +1,11 @@
+@import "../../../../assets/styles/variables";
+
 .example-card {
-  border: solid 1px rgba(0, 0, 0, .12);
+  border: solid 1px $color-border;
   border-radius: 4px;
-  -webkit-box-shadow: 8px 8px 16px -16px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 8px 8px 16px -16px rgba(66, 68, 90, 1);
-  box-shadow: 8px 8px 16px -16px rgba(66, 68, 90, 1);
+  -webkit-box-shadow: 8px 8px 16px -16px $color-box-shadow;
+  -moz-box-shadow: 8px 8px 16px -16px $color-box-shadow;
+  box-shadow: 8px 8px 16px -16px $color-box-shadow;
   margin-bottom: 16px;
 }
 
@@ -11,12 +13,14 @@ mat-card-header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  background: $color-header-background;
+  padding:16px;
 
   .air-hour {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: yellow;
+    background: $color-air-background;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -36,10 +40,14 @@ mat-card-header {
 mat-card-content {
   display: flex;
   flex-direction: row;
-  padding: 16px;
+  padding: 0 16px;
 
   .cover-container {
     margin: 16px 16px 16px 0;
+
+    img {
+      height: 295px;
+    }
   }
 }
 

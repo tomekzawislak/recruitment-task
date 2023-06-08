@@ -15,9 +15,9 @@
     <div class="cover-container">
       <img mat-card-image [src]="scheduleItem.cardCover" [alt]="scheduleItem.name">
     </div>
-    <div [innerHTML]="scheduleItem.summary"></div>
+    <div [innerHTML]="scheduleItem.summary" class="schedule-container"></div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>See episode details</button>
+    <button mat-raised-button (click)="seeDetails()">See show details</button>
   </mat-card-actions>
 </mat-card>

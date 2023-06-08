@@ -11,6 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ShowModule} from './show/show.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ScheduleModule,
+    ShowModule,
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,

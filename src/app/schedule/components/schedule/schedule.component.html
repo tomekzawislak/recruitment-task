@@ -1,4 +1,6 @@
 <div *ngIf="!!schedule$" class="schedule-container">
-  <app-schedule-item *ngFor="let scheduleItem of (schedule$ | async)" [scheduleItem]="scheduleItem">
+  <app-schedule-item *ngFor="let scheduleItem of (schedule$ | async)"
+                     [scheduleItem]="scheduleItem"
+                     (seeDetailsId)="navigateToDetails($event)">
   </app-schedule-item>
 </div>

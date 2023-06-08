@@ -1,0 +1,23 @@
+<div class="show-container">
+  <button mat-raised-button (click)="backToSchedule()">&lt; Back to schedule</button>
+
+  <div *ngIf="show$ | async as show" class="show-details-container">
+    <div class="show-details">
+      <img [src]="show.image.medium" [alt]="show.name">
+      <div class="show-information">
+        <p class="show-title">{{show.name}} <mat-chip *ngIf="!!show.rating.average" highlighted="true" color="accent">{{show.rating.average}}/10</mat-chip></p>
+        <mat-chip-listbox aria-label="Genres" class="show-genres">
+          <mat-chip *ngFor="let genre of show.genres" highlighted="true">{{genre}}</mat-chip>
+        </mat-chip-listbox>
+        <p>Premiered: {{show.premiered}}</p>
+        <p>Status: {{show.status}}</p>
+        <p>Type: {{show.type}}</p>
+        <p>Average runtime: {{show.averageRuntime}} min</p>
+        <p>Language: {{show.language}}</p>
+        <p>Official website: <a [href]="show.officialSite" target="_blank">{{show.officialSite}}</a></p>
+      </div>
+    </div>
+
+    <div [innerHTML]="show.summary" class="show-summary"></div>
+  </div>
+</div>

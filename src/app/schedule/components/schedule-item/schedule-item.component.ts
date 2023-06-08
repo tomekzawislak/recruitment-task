@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {ScheduleItem} from '../../../shared/models/schedule-item.model';
 
 @Component({
@@ -9,4 +9,9 @@ import {ScheduleItem} from '../../../shared/models/schedule-item.model';
 })
 export class ScheduleItemComponent {
   @Input() scheduleItem!: ScheduleItem;
+  @Output() seeDetailsId = new EventEmitter<number>();
+
+  public seeDetails(): void {
+    this.seeDetailsId.emit(this.scheduleItem.showId);
+  }
 }

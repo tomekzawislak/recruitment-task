@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ScheduleService} from '../../services/schedule.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-schedule',
@@ -9,6 +10,12 @@ import {ScheduleService} from '../../services/schedule.service';
 })
 export class ScheduleComponent {
   public schedule$ = this.scheduleService.schedule$;
-  constructor(private readonly scheduleService: ScheduleService) {
+
+  constructor(private readonly scheduleService: ScheduleService,
+              private readonly router: Router) {
+  }
+
+  public navigateToDetails(id: number): void {
+    this.router.navigate(['details', id]);
   }
 }

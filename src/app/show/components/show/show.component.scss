@@ -1,0 +1,31 @@
+.show-container {
+  padding: 16px;
+
+  .show-details-container {
+    margin-top: 16px;
+
+    .show-details {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .show-information {
+        padding-left: 16px;
+
+        .show-title {
+          font-size: 1.5em;
+          margin-bottom: 8px;
+        }
+
+        .show-genres {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .show-summary {
+      margin-top: 16px;
+    }
+  }
+}

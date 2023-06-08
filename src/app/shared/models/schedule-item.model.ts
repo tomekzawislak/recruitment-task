@@ -54,6 +54,10 @@ export class ScheduleItem extends ScheduleItemDTO {
     return this.embedded.show.name;
   }
 
+  public get showId(): number {
+    return this.embedded.show.id;
+  }
+
   public get DTO(): ScheduleItemDTO {
     return new ScheduleItemDTO(this);
   }

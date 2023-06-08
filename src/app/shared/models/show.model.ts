@@ -26,7 +26,7 @@ export interface Image {
 
 export class ShowDTO {
   public averageRuntime: number;
-  public dvdCountry: unknown; // TODO
+  public dvdCountry: unknown; // TODO type
   public ended: string; // '2023-06-07'
   public externals: {tvrage: number; thetvdb: number; imdb: string;};
   public genres: string[];
@@ -51,7 +51,11 @@ export class ShowDTO {
 
   constructor(showDTO: ShowDTO) {
     this.averageRuntime = showDTO.averageRuntime;
-    this.dvdCountry = showDTO.dvdCountry;
+    if (!!showDTO.dvdCountry) {
+      // TODO remove
+      console.log('dvdCountry', showDTO.dvdCountry);
+      this.dvdCountry = showDTO.dvdCountry;
+    }
     this.ended = showDTO.ended;
     this.externals = showDTO.externals;
     this.genres = showDTO.genres;

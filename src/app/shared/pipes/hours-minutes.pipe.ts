@@ -2,7 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {formatTime} from '../functions/date.function';
 
 @Pipe({
-  name: 'hoursMinutes'
+  name: 'hoursMinutes',
+  standalone: true
 })
 export class HoursMinutesPipe implements PipeTransform {
 

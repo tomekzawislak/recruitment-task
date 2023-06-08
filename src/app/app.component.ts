@@ -1,11 +1,19 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router, RouterModule} from '@angular/router';
 import {filter, map, Subscription} from 'rxjs';
+import {CommonModule} from '@angular/common';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  imports: [CommonModule, RouterModule, MatNativeDateModule, MatDatepickerModule, MatFormFieldModule, MatInputModule]
 })
 export class AppComponent implements OnInit, OnDestroy {
   public title = '';

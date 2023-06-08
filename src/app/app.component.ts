@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {filter, map, Subscription} from 'rxjs';
+import {ScheduleService} from './schedule/services/schedule.service';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public title = '';
 
   private subscriptions = new Subscription();
-  constructor(private readonly router: Router) {
+  constructor(private readonly router: Router,
+              private readonly scheduleService: ScheduleService) {
   }
 
   ngOnInit(): void {
@@ -41,5 +44,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+  }
+
+  public changeSelectedDate(event: MatDatepickerInputEvent<any>): void {
+    console.log(event)
+    this.scheduleService.emitSelectedDate(event.value); // TODO: MatDatepickerInputEvent<Date> as type
   }
 }

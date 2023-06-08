@@ -6,6 +6,11 @@ import {AppComponent} from './app.component';
 import {DataService} from './shared/services/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ScheduleModule} from './schedule/schedule.module';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,9 +18,14 @@ import {ScheduleModule} from './schedule/schedule.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ScheduleModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

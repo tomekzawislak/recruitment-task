@@ -24,6 +24,10 @@ export class ScheduleService implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
+  public emitSelectedDate(value: Date): void {
+    this._selectedDate$.next(value);
+  }
+
   private initSelectedDateSubscription(): void {
     this.subscriptions.add(
       this.selectedDate$

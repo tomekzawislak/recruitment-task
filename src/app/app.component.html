@@ -1,18 +1,4 @@
-<header class="app-header">
-  <div class="title">{{title}}</div>
-  <div class="datepicker">
-    <mat-form-field appearance="fill">
-      <mat-label>Choose a date</mat-label>
-      <input matInput
-             [matDatepicker]="picker"
-             [formControl]="selectedDate"
-             (dateChange)="changeSelectedDate($event)">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </div>
-</header>
+<app-header></app-header>
 <div class="router-outlet-container">
   <router-outlet></router-outlet>
 </div>

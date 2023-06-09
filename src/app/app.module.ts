@@ -5,12 +5,8 @@ import {AppComponent} from './app.component';
 import {DataService} from './shared/services/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ScheduleModule} from './schedule/schedule.module';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
 import {ShowModule} from './show/show.module';
 import {CoreModule} from './core/core.module';
 
@@ -26,11 +22,7 @@ import {CoreModule} from './core/core.module';
     CoreModule,
     ScheduleModule,
     ShowModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    ReactiveFormsModule
+    MatNativeDateModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

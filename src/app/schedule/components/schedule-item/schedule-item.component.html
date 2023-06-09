@@ -15,7 +15,7 @@
     <div class="cover-container">
       <img mat-card-image [src]="scheduleItem.cardCover" [alt]="scheduleItem.name">
     </div>
-    <div [innerHTML]="scheduleItem.summary | safeHtml" class="schedule-container"></div>
+    <div *ngIf="!!scheduleItem.summary" [innerHTML]="scheduleItem.summary | safeHtml" class="schedule-container"></div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="seeDetails()">See show details</button>

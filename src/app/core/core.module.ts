@@ -3,14 +3,29 @@ import { CommonModule } from '@angular/common';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {HttpErrorInterceptor} from './interceptors/http-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HeaderComponent } from './components/header/header.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    HeaderComponent
   ],
   providers: [
     {

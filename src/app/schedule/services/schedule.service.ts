@@ -1,6 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {DataService} from '../../shared/services/data.service';
-import {BehaviorSubject, map, Observable, ReplaySubject, Subscription, switchMap, tap} from 'rxjs';
+import {BehaviorSubject, combineLatest, map, Observable, ReplaySubject, Subscription, switchMap, tap} from 'rxjs';
 import {ScheduleItem, ScheduleItemDTO} from '../../shared/models/schedule-item.model';
 import {formatDateToString} from '../../shared/functions/date.function';
 
@@ -11,6 +11,9 @@ export class ScheduleService implements OnDestroy {
   private _schedule$ = new ReplaySubject<ScheduleItem[]>(1);
   public schedule$ = this._schedule$.asObservable();
 
+  private _filteredSchedule$ = new ReplaySubject<ScheduleItem[]>(1);
+  public filteredSchedule$ = this._filteredSchedule$.asObservable();
+
   private _genresList$ = new ReplaySubject<string[]>(1);
   public genresList$ = this._genresList$.asObservable();
 
@@ -18,7 +21,7 @@ export class ScheduleService implements OnDestroy {
   public selectedGenres$ = this._selectedGenres$.asObservable();
 
   private _selectedDate$ = new BehaviorSubject<Date>(new Date);
-  public selectedDate$ =this._selectedDate$.asObservable();
+  public selectedDate$ = this._selectedDate$.asObservable();
 
   private readonly _NOT_SPECIFIED = '(Not specified)';
   public get NOT_SPECIFIED(): string {
@@ -29,6 +32,7 @@ export class ScheduleService implements OnDestroy {
 
   constructor(private readonly dataService: DataService) {
     this.initSelectedDateSubscription();
+    this.initSelectedGenresSubscription();
   }
 
   ngOnDestroy(): void {
@@ -53,6 +57,30 @@ export class ScheduleService implements OnDestroy {
             this._genresList$.next(this.getUniqueGenresList(data));
             this._schedule$.next(data);
           })
+        )
+        .subscribe()
+    );
+  }
+
+  private initSelectedGenresSubscription(): void {
+    this.subscriptions.add(
+      combineLatest([
+        this.schedule$,
+        this.selectedGenres$
+      ]).pipe(
+          map(([schedule, filter]: [ScheduleItem[], string[]]) => {
+            if (!filter || filter.length === 0) {
+              return schedule;
+            }
+            return schedule.filter((scheduleItem: ScheduleItem) => {
+              const genres = scheduleItem.genres;
+              if (!genres.length) {
+                return filter.includes(this.NOT_SPECIFIED);
+              }
+              return !!genres.filter((genre: string) => filter.includes(genre)).length
+            })
+          }),
+          tap(filtered => this._filteredSchedule$.next(filtered))
         )
         .subscribe()
     );

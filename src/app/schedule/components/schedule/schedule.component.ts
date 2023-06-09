@@ -12,23 +12,7 @@ import {ScheduleItem} from '../../../shared/models/schedule-item.model';
 })
 export class ScheduleComponent {
   public schedule$ = this.scheduleService.schedule$
-  public scheduleList$ = combineLatest([
-    this.scheduleService.schedule$,
-    this.scheduleService.selectedGenres$
-  ]).pipe(
-    map(([schedule, filter]: [ScheduleItem[], string[]]) => {
-      if (!filter || filter.length === 0) {
-        return schedule;
-      }
-      return schedule.filter((scheduleItem: ScheduleItem) => {
-        const genres = scheduleItem.genres;
-        if (!genres.length) {
-          return filter.includes(this.scheduleService.NOT_SPECIFIED);
-        }
-        return !!genres.filter((genre: string) => filter.includes(genre)).length
-      })
-    })
-  );
+  public filteredSchedule$ = this.scheduleService.filteredSchedule$;
 
   constructor(private readonly scheduleService: ScheduleService,
               private readonly router: Router) {

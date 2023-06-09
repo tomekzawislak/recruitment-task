@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatBadgeModule} from '@angular/material/badge';
 import {ShowRoutingModule} from './show-routing.module';
+import {SharedModule} from '../shared/shared.module';
 
 
 
@@ -12,12 +13,13 @@ import {ShowRoutingModule} from './show-routing.module';
   declarations: [
     ShowComponent
   ],
-  imports: [
-    CommonModule,
-    ShowRoutingModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatBadgeModule
-  ]
+    imports: [
+        CommonModule,
+        ShowRoutingModule,
+        MatButtonModule,
+        MatChipsModule,
+        MatBadgeModule,
+        SharedModule
+    ]
 })
 export class ShowModule { }

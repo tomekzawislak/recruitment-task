@@ -18,6 +18,6 @@
       </div>
     </div>
 
-    <div [innerHTML]="show.summary" class="show-summary"></div>
+    <div [innerHTML]="show.summary | safeHtml" class="show-summary"></div>
   </div>
 </div>

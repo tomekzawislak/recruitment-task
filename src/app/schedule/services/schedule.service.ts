@@ -11,8 +11,19 @@ export class ScheduleService implements OnDestroy {
   private _schedule$ = new ReplaySubject<ScheduleItem[]>(1);
   public schedule$ = this._schedule$.asObservable();
 
+  private _genresList$ = new ReplaySubject<string[]>(1);
+  public genresList$ = this._genresList$.asObservable();
+
+  private _selectedGenres$ = new BehaviorSubject<string[]>([]);
+  public selectedGenres$ = this._selectedGenres$.asObservable();
+
   private _selectedDate$ = new BehaviorSubject<Date>(new Date);
   public selectedDate$ =this._selectedDate$.asObservable();
+
+  private readonly _NOT_SPECIFIED = '(Not specified)';
+  public get NOT_SPECIFIED(): string {
+    return this._NOT_SPECIFIED;
+  }
 
   private subscriptions = new Subscription();
 
@@ -28,16 +39,30 @@ export class ScheduleService implements OnDestroy {
     this._selectedDate$.next(value);
   }
 
+  public emitSelectedGenres$(value: string[]): void {
+    this._selectedGenres$.next(value);
+  }
+
   private initSelectedDateSubscription(): void {
     this.subscriptions.add(
       this.selectedDate$
         .pipe(
           map((date: Date) => formatDateToString(date)),
           switchMap((date: string) => this.getSchedule$(date)),
-          tap((data: ScheduleItem[]) => this._schedule$.next(data))
+          tap((data: ScheduleItem[]) => {
+            this._genresList$.next(this.getUniqueGenresList(data));
+            this._schedule$.next(data);
+          })
         )
         .subscribe()
     );
+  }
+
+  private getUniqueGenresList(data: ScheduleItem[]): string[] {
+    const genres = data.map((scheduleItem: ScheduleItem) => scheduleItem.genres).flat();
+    const unique = [...new Set(genres)].sort();
+    unique.unshift(this.NOT_SPECIFIED);
+    return unique;
   }
 
   private getSchedule$(date: string, country?: string): Observable<ScheduleItem[]> {

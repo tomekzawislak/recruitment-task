@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -22,7 +23,8 @@ import {MatInputModule} from '@angular/material/input';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   exports: [
     HeaderComponent

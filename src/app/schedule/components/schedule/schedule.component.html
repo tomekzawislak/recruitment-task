@@ -1,6 +1,7 @@
 <div class="schedule-container">
   <ng-container *ngIf="!!(schedule$ | async)?.length; else noScheduledShows">
-    <app-schedule-item *ngFor="let scheduleItem of (schedule$ | async)"
+    <p>Shows found: {{(scheduleList$ | async)?.length}}</p>
+    <app-schedule-item *ngFor="let scheduleItem of (scheduleList$ | async)"
                        [scheduleItem]="scheduleItem"
                        (seeDetailsId)="navigateToDetails($event)">
     </app-schedule-item>

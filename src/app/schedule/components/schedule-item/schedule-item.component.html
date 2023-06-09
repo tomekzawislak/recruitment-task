@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="schedule-item-card">
   <mat-card-header>
     <div class="air-hour">
       {{scheduleItem.airstamp | hoursMinutes}}
@@ -15,7 +15,12 @@
     <div class="cover-container">
       <img mat-card-image [src]="scheduleItem.cardCover" [alt]="scheduleItem.name">
     </div>
-    <div *ngIf="!!scheduleItem.summary" [innerHTML]="scheduleItem.summary | safeHtml" class="schedule-container"></div>
+    <div class="schedule-container">
+      <div *ngIf="!!scheduleItem.summary" [innerHTML]="scheduleItem.summary | safeHtml"></div>
+      <mat-chip-listbox aria-label="Genres" class="header-right">
+        <mat-chip *ngFor="let genre of scheduleItem.genres" highlighted="true">{{genre}}</mat-chip>
+      </mat-chip-listbox>
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="seeDetails()">See show details</button>

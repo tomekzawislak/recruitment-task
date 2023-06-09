@@ -24,9 +24,6 @@ export class ScheduleService implements OnDestroy {
   public selectedDate$ = this._selectedDate$.asObservable();
 
   private readonly _NOT_SPECIFIED = '(Not specified)';
-  public get NOT_SPECIFIED(): string {
-    return this._NOT_SPECIFIED;
-  }
 
   private subscriptions = new Subscription();
 
@@ -75,7 +72,7 @@ export class ScheduleService implements OnDestroy {
             return schedule.filter((scheduleItem: ScheduleItem) => {
               const genres = scheduleItem.genres;
               if (!genres.length) {
-                return filter.includes(this.NOT_SPECIFIED);
+                return filter.includes(this._NOT_SPECIFIED);
               }
               return !!genres.filter((genre: string) => filter.includes(genre)).length
             })
@@ -89,7 +86,7 @@ export class ScheduleService implements OnDestroy {
   private getUniqueGenresList(data: ScheduleItem[]): string[] {
     const genres = data.map((scheduleItem: ScheduleItem) => scheduleItem.genres).flat();
     const unique = [...new Set(genres)].sort();
-    unique.unshift(this.NOT_SPECIFIED);
+    unique.unshift(this._NOT_SPECIFIED);
     return unique;
   }
 

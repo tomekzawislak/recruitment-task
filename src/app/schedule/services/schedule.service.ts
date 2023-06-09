@@ -2,7 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {DataService} from '../../shared/services/data.service';
 import {BehaviorSubject, map, Observable, ReplaySubject, Subscription, switchMap, tap} from 'rxjs';
 import {ScheduleItem, ScheduleItemDTO} from '../../shared/models/schedule-item.model';
-import {formatDate} from '../../shared/functions/date.function';
+import {formatDateToString} from '../../shared/functions/date.function';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ export class ScheduleService implements OnDestroy {
     this.subscriptions.add(
       this.selectedDate$
         .pipe(
-          map((date: Date) => formatDate(date)),
+          map((date: Date) => formatDateToString(date)),
           switchMap((date: string) => this.getSchedule$(date)),
           tap((data: ScheduleItem[]) => this._schedule$.next(data))
         )

@@ -12,10 +12,10 @@ export class ScheduleItemDTO {
   public runtime: number;
   public season: number;
   public summary: string;
-  public type: string; // TODO: enum -> values: "regular"
+  public type: string; // TODO: create enum with possible values and use as type here
   public url: string;
-  private _embedded: {show: ShowDTO};
-  private _links: {self: Link, show: Link};
+  private readonly _embedded: {show: ShowDTO};
+  private readonly _links: {self: Link, show: Link};
 
   constructor(scheduleItemDTO: ScheduleItemDTO) {
     this.airdate = scheduleItemDTO.airdate;

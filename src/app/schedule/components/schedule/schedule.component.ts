@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush // TODO: check on filtering and date change
+  changeDetection: ChangeDetectionStrategy.OnPush // TODO: check on filtering
 })
 export class ScheduleComponent {
   public schedule$ = this.scheduleService.schedule$;

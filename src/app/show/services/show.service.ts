@@ -1,9 +1,8 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {DataService} from '../../shared/services/data.service';
-import {catchError, map, Observable, Subject, Subscription, tap, throwError} from 'rxjs';
+import {map, Observable, Subject, Subscription, tap} from 'rxjs';
 import {Show, ShowDTO} from '../../shared/models/show.model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {HttpErrorResponse} from '@angular/common/http';
 
 @Injectable()
 export class ShowService implements OnDestroy {

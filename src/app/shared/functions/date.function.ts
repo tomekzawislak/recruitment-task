@@ -3,7 +3,7 @@ export function padTo2Digits(num: number): string {
 }
 
 // 👇️ format as "YYYY-MM-DD"
-export function formatDate(date: Date): string {
+export function formatDateToString(date: Date): string {
   return (
     [
       date.getFullYear(),
@@ -13,7 +13,7 @@ export function formatDate(date: Date): string {
   );
 }
 
-export function formatTime(dateTimeString: string): string {
+export function formatTimeToString(dateTimeString: string): string {
   const timeElements = dateTimeString.split('T')[1].split(':');
   return `${timeElements[0]}:${timeElements[1]}`;
 }

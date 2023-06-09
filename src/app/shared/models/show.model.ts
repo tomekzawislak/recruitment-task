@@ -26,8 +26,8 @@ export interface Image {
 
 export class ShowDTO {
   public averageRuntime: number;
-  public dvdCountry: unknown; // TODO type
-  public ended: string; // '2023-06-07'
+  public dvdCountry: unknown; // TODO: type - currently I can't find it in documentation
+  public ended: string; // i.e. '2023-06-07'
   public externals: {tvrage: number; thetvdb: number; imdb: string;};
   public genres: string[];
   public id: number;
@@ -42,20 +42,16 @@ export class ShowDTO {
   public schedule: {time: string; days: string[];}
   public status: string;
   public summary: string;
-  public type: string; // TODO: enum?
+  public type: string; // TODO: create enum with possible values and use as type here
   public updated: number;
   public url: string;
   public webChannel: Channel;
   public weight: number;
-  private _links: {self: Link, previousepisode: Link}
+  private readonly _links: {self: Link, previousepisode: Link}
 
   constructor(showDTO: ShowDTO) {
     this.averageRuntime = showDTO.averageRuntime;
-    if (!!showDTO.dvdCountry) {
-      // TODO remove
-      console.log('dvdCountry', showDTO.dvdCountry);
-      this.dvdCountry = showDTO.dvdCountry;
-    }
+    this.dvdCountry = showDTO.dvdCountry;
     this.ended = showDTO.ended;
     this.externals = showDTO.externals;
     this.genres = showDTO.genres;

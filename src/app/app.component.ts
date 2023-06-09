@@ -28,8 +28,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  public changeSelectedDate(event: MatDatepickerInputEvent<any>): void {
-    this.scheduleService.emitSelectedDate$(event.value); // TODO: MatDatepickerInputEvent<Date> as type
+  public changeSelectedDate(event: MatDatepickerInputEvent<Date>): void {
+    if (!event.value) {
+      return;
+    }
+    this.scheduleService.emitSelectedDate$(event.value);
   }
 
   private initRouterEventsSubscription(): void {

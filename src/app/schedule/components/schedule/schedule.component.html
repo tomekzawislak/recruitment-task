@@ -1,6 +1,12 @@
-<div *ngIf="!!schedule$" class="schedule-container">
-  <app-schedule-item *ngFor="let scheduleItem of (schedule$ | async)"
-                     [scheduleItem]="scheduleItem"
-                     (seeDetailsId)="navigateToDetails($event)">
-  </app-schedule-item>
+<div class="schedule-container">
+  <ng-container *ngIf="!!(schedule$ | async)?.length; else noScheduledShows">
+    <app-schedule-item *ngFor="let scheduleItem of (schedule$ | async)"
+                       [scheduleItem]="scheduleItem"
+                       (seeDetailsId)="navigateToDetails($event)">
+    </app-schedule-item>
+  </ng-container>
 </div>
+
+<ng-template #noScheduledShows>
+  <div class="no-scheduled-shows-info">No schedule for selected date. Please choose another date.</div>
+</ng-template>

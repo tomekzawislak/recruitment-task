@@ -1,0 +1,21 @@
+@import "variables";
+
+@mixin container() {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+@mixin info() {
+  background: $color-info-light;
+  border: solid 1px $color-info-dark;
+  color: $color-info-dark;
+  border-radius: 4px;
+}
+
+@mixin error() {
+  background: $color-error-light;
+  border: solid 1px $color-error-dark;
+  color: $color-error-dark;
+  border-radius: 4px;
+}

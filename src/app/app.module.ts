@@ -12,6 +12,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ShowModule} from './show/show.module';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {ShowModule} from './show/show.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    CoreModule,
     ScheduleModule,
     ShowModule,
     MatInputModule,

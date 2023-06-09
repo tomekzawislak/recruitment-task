@@ -1,5 +1,10 @@
+@import "../../../../assets/styles/mixins";
+
 .schedule-container {
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
+  @include container;
+}
+
+.no-scheduled-shows-info {
+  @include container;
+  @include info;
 }

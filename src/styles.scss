@@ -1,4 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/variables";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.toast-error {
+  .mdc-snackbar {
+    &__surface {
+      background: $color-error-light !important;
+    }
+    &__label {
+      color: $color-error-dark !important;
+    }
+  }
+}
+
+.toast-success {
+  .mdc-snackbar {
+    &__surface {
+      background: $color-success-light !important;
+    }
+    &__label {
+      color: $color-success-dark !important;
+    }
+  }
+}

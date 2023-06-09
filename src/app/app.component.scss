@@ -1,6 +1,8 @@
 @import "../assets/styles/variables";
 
 .app-header {
+  position: fixed;
+  z-index: 9999;
   height: 100px;
   width: 100%;
   box-sizing: border-box;
@@ -17,4 +19,8 @@
   &__datepicker {
 
   }
+}
+
+.router-outlet-container {
+  padding-top: 100px;
 }

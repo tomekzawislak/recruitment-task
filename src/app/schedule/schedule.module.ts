@@ -5,6 +5,7 @@ import { ScheduleItemComponent } from './components/schedule-item/schedule-item.
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {SharedModule} from '../shared/shared.module';
+import {ScheduleRoutingModule} from './schedule-routing.module';
 
 
 
@@ -15,6 +16,7 @@ import {SharedModule} from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
+    ScheduleRoutingModule,
     MatCardModule,
     MatButtonModule,
     NgOptimizedImage,

@@ -4,6 +4,7 @@ import {ShowComponent} from './components/show/show.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatBadgeModule} from '@angular/material/badge';
+import {ShowRoutingModule} from './show-routing.module';
 
 
 
@@ -13,6 +14,7 @@ import {MatBadgeModule} from '@angular/material/badge';
   ],
   imports: [
     CommonModule,
+    ShowRoutingModule,
     MatButtonModule,
     MatChipsModule,
     MatBadgeModule

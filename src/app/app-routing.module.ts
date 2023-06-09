@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ScheduleComponent} from './schedule/components/schedule/schedule.component';
-import {ShowComponent} from './show/components/show/show.component';
 
 const routes: Routes = [
   {
@@ -11,8 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'schedule',
-    pathMatch: 'full',
-    component: ScheduleComponent,
+    loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule),
     title: 'TV Shows',
     data: {
       title: 'Scheduled TV Shows'
@@ -20,8 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    pathMatch: 'full',
-    component: ShowComponent,
+    loadChildren: () => import('./show/show.module').then(m => m.ShowModule),
     title: 'Show details',
     data: {
       title: 'Show details'
@@ -29,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'schedule' // TODO
+    redirectTo: 'schedule'
   }
 ];
 

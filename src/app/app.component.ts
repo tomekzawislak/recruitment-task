@@ -46,7 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
             if (route.snapshot.data['title']) {
               routeTitle = route!.snapshot.data['title'];
             }
-            if (route.snapshot.url[0].path !== 'schedule') {
+            if (!this.router.routerState.snapshot.url.includes('/schedule')) {
               this.selectedDate.disable();
             } else {
               this.selectedDate.enable();

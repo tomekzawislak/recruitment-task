@@ -9,6 +9,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ShowModule} from './show/show.module';
 import {CoreModule} from './core/core.module';
+import {SignalsModule} from './signals/signals.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {CoreModule} from './core/core.module';
     CoreModule,
     ScheduleModule,
     ShowModule,
+    SignalsModule,
     MatNativeDateModule
   ],
   providers: [DataService],

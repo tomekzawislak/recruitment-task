@@ -24,6 +24,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'signals',
+    loadChildren: () => import('./signals/signals.module').then(m => m.SignalsModule),
+    title: 'Testing signals',
+    data: {
+      title: 'Testing signals'
+    }
+  },
+  {
     path: '**',
     redirectTo: 'schedule'
   }

@@ -1,0 +1,22 @@
+<div class="signals-container">
+
+  <div class="selected-car">
+    <div>Name: {{selectedCar().name}}</div>
+    <div>Engine: {{selectedCar().engine.name}}</div>
+    <div>Price: {{selectedCar().price | currency:'USD'}}</div>
+  </div>
+
+  <div class="add-ons">
+    <div *ngFor="let addOn of addOns()" class="add-on">
+      <div>{{addOn.name}}</div>
+      <div>{{addOn.price | currency:'USD'}}</div>
+      <div><mat-slide-toggle [(ngModel)]="addOn.selected" (ngModelChange)="calculatePrice($event, addOn)"></mat-slide-toggle></div>
+    </div>
+  </div>
+
+  <div class="total-price">
+    Total price: {{totalPrice() | currency:'USD'}}
+  </div>
+
+</div>
+

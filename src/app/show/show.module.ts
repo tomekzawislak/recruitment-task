@@ -10,9 +10,9 @@ import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [
-    ShowComponent
-  ],
+    declarations: [
+      ShowComponent
+    ],
     imports: [
         CommonModule,
         ShowRoutingModule,

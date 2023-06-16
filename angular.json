@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "wolterskluwer-test": {
+    "recruitment-task": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/wolterskluwer-test",
+            "outputPath": "dist/recruitment-task",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "wolterskluwer-test:build:production"
+              "browserTarget": "recruitment-task:build:production"
             },
             "development": {
-              "browserTarget": "wolterskluwer-test:build:development"
+              "browserTarget": "recruitment-task:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "wolterskluwer-test:build"
+            "browserTarget": "recruitment-task:build"
           }
         },
         "test": {
